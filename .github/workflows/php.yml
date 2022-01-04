@@ -1,4 +1,4 @@
-name: PHP Composer
+name: PHP 
 
 on:
   push:
@@ -14,23 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+    - name: Validate php.json and php.lock
+      run: php validate --strict
 
-    - name: Cache Composer packages
-      id: composer-cache
+    - name: Cache php packages
+      id: php-cache
       uses: actions/cache@v2
       with:
         path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-php-${{ hashFiles('**/php.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: php install --prefer-dist --no-progress
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+    # Add a test script to php.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getphp.org/doc/articles/scripts.md
 
     # - name: Run test suite
-    #   run: composer run-script test
+    #   run: php run-script test
