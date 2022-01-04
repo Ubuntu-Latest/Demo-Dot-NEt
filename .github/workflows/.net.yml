@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-runner
+    runs-on: my-label
 
     steps:
     - uses: actions/checkout@v2
