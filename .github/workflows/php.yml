@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Validate php.json and php.lock
-      run: php validate --strict
+      run: validate --strict
 
     - name: Setup PHP Action
       uses: shivammathur/setup-php@2.16.0
