@@ -17,9 +17,9 @@ jobs:
     - name: Validate php.json and php.lock
       run: php validate --strict
 
-    - name: Cache php packages
-      id: php-cache
-      uses: actions/cache@v2
+    - name: Setup PHP Action
+      uses: shivammathur/setup-php@2.16.0
+
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/php.lock') }}
